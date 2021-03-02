@@ -10,10 +10,16 @@
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="#">Candidates</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="#">Register</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Vote</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
       </li>
     </ul>
   </div>
