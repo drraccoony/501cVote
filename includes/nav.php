@@ -13,10 +13,10 @@
         <a class="nav-link disabled" href="#">Candidates</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="register.php">Register</a>
+        <a class="nav-link disabled" href="register.php">Register</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Vote</a>
+        <a class="nav-link" href="validate_voter.php">Vote</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#">About</a>
