@@ -6,9 +6,7 @@ Nonprofits to open for board of directors voting when in-person voting at meetin
 * MySQL Database
 
 ## Features
-* Create membership accounts for voting
-* Basic admin accounts
-* Simple frontend UI
-* Voting open & close dates
-* Anonymous voting
-* Easily tally and count votes
+* Create pre-made "Voting Codes"
+* 1 vote per code
+   * Code revoting validation
+* Lightweight
