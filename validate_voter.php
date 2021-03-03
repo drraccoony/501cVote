@@ -36,9 +36,9 @@
                 <!-- steps end -->
 
                 <i class="fas fa-lock fa-6x" style="color: Dodgerblue;"></i>
-                <h2>Enter Voter Keyphrase</h2>
+                <h1>Enter Voter Keyphrase</h1>
                 <p class="lead">Upon internal confirmation with our internal system for volunteer hours, you should be provided a registration key for voting. When you cast your vote, your voting selections are completely unassociated from your identity.</p>
-                <p class="lead">Concerned about privacy? View our <a href="about.php">about page</a> to learn how we are handling voting this year.</p>
+                <p class="lead">Concerned about privacy? View our <strong>about page</strong> to learn how we are handling voting this year.</p>
             </div>
             <?php
             if (isset($_POST['submit'])) {
@@ -55,18 +55,14 @@
             } ?>
             <div class="row">
                 <div class="col-md-12 order-md-1">
-                    <h4 class="mb-3">Step 1: Validation</h4>
                     <form class="" method="POST" action="">
                         <div class="mb-3">
-                            <label for="username">Voting Key</label>
+                            <label for="voterkey">Voting Key</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
                                 <input type="text" class="form-control" id="voterkey" name="voteid" placeholder="" required>
-                                <div class="invalid-feedback" style="width: 100%;">
-                                    Your username is required.
-                                </div>
                             </div>
                             <?php if ($reCAPTCHA == 1) { ?>
                                 <div class="g-recaptcha" data-sitekey="your_site_key"></div>

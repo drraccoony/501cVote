@@ -9,8 +9,9 @@
     <!-- Bootstrap CSS -->
     <?php include 'includes/head.php'; ?>
 
-    <title>Hello, world!</title>
+    <title>MNFurs Voting</title>
 </head>
+<?php include "helpers\ada.php" ?>
 
 <body class="homebg d-flex flex-column h-100">
 
@@ -18,8 +19,8 @@
 
     <div class="container" role="main">
         <div class="py-5 text-center">
-            <img class="d-block mx-auto mb-4" src="img/brand.png" alt="" width="72" height="72">
-            <h2>MNFurs Voting</h2>
+            <img class="d-block mx-auto mb-4" src="img/brand.png" alt="MNFurs Logo" width="72" height="72">
+            <h1>MNFurs Voting</h1>
             <p class="lead">Since we cannot vote in-person, its time to vote online!</p>
             <hr>
         </div>

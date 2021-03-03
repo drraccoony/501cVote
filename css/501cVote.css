@@ -19,6 +19,14 @@ html {
   min-height: 100%;
 }
 
+a
+{
+    color: #004FA3;
+}
+code {
+    color: #9B1252;
+}
+
 .homebg {
   background-image:
     linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgb(255, 255, 255)),

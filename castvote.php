@@ -19,6 +19,7 @@
 
     <title>MNFurs Voting - Vote</title>
 </head>
+<?php include "helpers\ada.php" ?>
 
 <body class="d-flex flex-column h-100">
 
@@ -38,16 +39,15 @@
                 </ul>
                 <!-- steps end -->
                 <i class="fas fa-tasks fa-6x" style="color: Dodgerblue;"></i>
-                <h2>Time to Vote!</h2>
+                <h1>Time to Vote!</h1>
                 <p class="lead">We found your voter ID in our system. Please make your voting selection for <strong>2</strong> canidates.</p>
             </div>
 
             <div class="row">
                 <div class="col-md-12 order-md-1">
-                    <h4 class="mb-3">Step 2: Make vote selections</h4>
                     <form class="" method="POST" action="">
                         <div class="mb-3">
-                            <label for="username">Voting Key</label>
+                            <label for="voterkey">Voting Key</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -55,7 +55,7 @@
                                 <input type="text" class="form-control" id="voterkey" name="voteid" value="<?php echo (isset($voter)) ? $voter : ''; ?>" required disabled>
                             </div>
                         </div>
-                        <h4>Canidate Votes</h4>
+                        <h2>Canidate Votes</h2>
                         <p>Please select no more than two. Selecting more than 2 will result in your ballot being void, and not counted.</p>
 
                         <div class="form-check">
@@ -80,9 +80,6 @@
                             </label>
                         </div>
 
-
-
-
                         <hr class="mb-4">
                         <p class="lead">Once your vote is placed, you will not be able to alter your ballot!</p>
                         <div class="form-check">
@@ -97,13 +94,6 @@
                     <?php
                     if (isset($_POST['submit'])) {
                         include 'dbconnect.php';
-                        if ($debug == 1) {
-                            echo 'Voter: ' . $voter . '<br>';
-                            echo 'Candiate 1: ' . $_POST['canidate_1'] . '<br>';
-                            echo 'Candiate 2: ' . $_POST['canidate_2'] . '<br>';
-                            echo 'Candiate 3: ' . $_POST['canidate_3'] . '<br>';
-                        }
-
                         $sql = "UPDATE `votes` SET `voted` = '1', `canidate1` = '" . $_POST['canidate_1'] . "', `canidate2` = '" . $_POST['canidate_2'] . "', `canidate3` = '" . $_POST['canidate_3'] . "' WHERE `votes`.`voterId` = '" . $voter . "';";
                         $result = $conn->query($sql);
                         $conn->close();
@@ -114,8 +104,6 @@
                         }
                     }
                     ?>
-
-
 
                 </div>
             </div>

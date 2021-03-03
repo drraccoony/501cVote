@@ -13,6 +13,7 @@
 
     <title>MNFurs Voting - Voted!</title>
 </head>
+<?php include "helpers\ada.php" ?>
 
 <body class="d-flex flex-column h-100">
 
