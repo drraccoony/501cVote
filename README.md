@@ -10,3 +10,4 @@ Nonprofits to open for board of directors voting when in-person voting at meetin
 * 1 vote per code
    * Code revoting validation
 * Lightweight
+* Responsive
