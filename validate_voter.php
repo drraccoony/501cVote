@@ -9,6 +9,10 @@
     <!-- Bootstrap CSS -->
     <?php include 'includes/head.php'; ?>
 
+    <!-- ReCAPTCHA v2 -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <?php $reCAPTCHA = 0; ?>
+
     <title>MNFurs Voting - Validation</title>
 </head>
 
@@ -64,6 +68,9 @@
                                     Your username is required.
                                 </div>
                             </div>
+                            <?php if ($reCAPTCHA == 1) { ?>
+                                <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+                            <?php } ?>
                             <div id="emailHelpBlock" class="form-text">
                                 You should have been provided a voter registration key. Please use that here to validate your vote.
                             </div>
