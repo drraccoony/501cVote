@@ -17,6 +17,7 @@ Nonprofits to open for board of directors voting when in-person voting at meetin
 - [ ] Add validation to prevent more than alloted candidates
 - [ ] Remove hardcoded canidates
 - [ ] Add server time checks to auto open / close voting
+- [ ] ADA Compliance
 
 ## Optional: Enable ReCAPTCHA
 1. Open `validate_voter.php`
