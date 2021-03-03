@@ -59,8 +59,8 @@
                                 </div>
                             </div>
                             <div id="emailHelpBlock" class="form-text">
-                                    What name are you known by within the community. This will help us find your volunteer hours in our system.
-                                </div>
+                                What name are you known by within the community. This will help us find your volunteer hours in our system.
+                            </div>
                         </div>
 
                         <div class="mb-3">
