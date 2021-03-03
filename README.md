@@ -13,6 +13,11 @@ Nonprofits to open for board of directors voting when in-person voting at meetin
 * Responsive UI
 * Prepared SQL statements to protect against injection attacks
 
+## Room for improvement
+- [ ] Add validation to prevent more than alloted candidates
+- [ ] Remove hardcoded canidates
+- [ ] Add server time checks to auto open / close voting
+
 ## Optional: Enable ReCAPTCHA
 1. Open `validate_voter.php`
 2. Change `$reCAPTCHA` head variable to 1.
