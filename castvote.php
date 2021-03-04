@@ -31,7 +31,7 @@
         <div class="container">
             <div class="py-5 text-center">
                 <!-- steps -->
-                <ul id="progressbar">
+                <ul id="progressbar" role="progressbar" aria-valuenow="Step 2 of 4 Vote" aria-valuetext="Step 2 of 4 Vote">
                     <li class="active" id="step1"><strong>Validate</strong></li>
                     <li class="active" id="step2" aria-valuetext="Step 2 of 4"><strong>Vote</strong></li>
                     <li id="step3"><strong>Submit</strong></li>

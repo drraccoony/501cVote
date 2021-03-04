@@ -26,11 +26,11 @@
         <div class="container">
             <div class="py-5 text-center">
                 <!-- steps -->
-                <ul id="progressbar">
-                    <li class="active" id="step1" aria-valuetext="Step 1 of 4"><strong>Validate</strong></li>
-                    <li id="step2" aria-valuetext="Step 2 of 4"><strong>Vote</strong></li>
-                    <li id="step3" aria-valuetext="Step 3 of 4"><strong>Submit</strong></li>
-                    <li id="step4" aria-valuetext="Step 4 of 4"><strong>Finished</strong></li>
+                <ul id="progressbar" role="progressbar" aria-valuenow="Step 1 of 4 Validate" aria-valuetext="Step 1 of 4 Validate">
+                    <li class="active" id="step1"><strong>Validate</strong></li>
+                    <li id="step2"><strong>Vote</strong></li>
+                    <li id="step3"><strong>Submit</strong></li>
+                    <li id="step4"><strong>Finished</strong></li>
                 </ul>
                 <!-- steps end -->
 
