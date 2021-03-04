@@ -23,11 +23,11 @@
         <div class="py-5 text-center">
             <!-- steps -->
             <ul id="progressbar">
-                <li class="active" id="step1"><strong>Validate</strong></li>
-                <li class="active" id="step2"><strong>Vote</strong></li>
-                <li class="active" id="step3"><strong>Submit</strong></li>
-                <li class="active" id="step4"><strong>Finished</strong></li>
-            </ul>
+                    <li class="active" id="step1" aria-valuetext="Step 1 of 4"><strong>Validate</strong></li>
+                    <li class="active" id="step2" aria-valuetext="Step 2 of 4"><strong>Vote</strong></li>
+                    <li class="active" id="step3" aria-valuetext="Step 3 of 4"><strong>Submit</strong></li>
+                    <li class="active" id="step4" aria-valuetext="Step 4 of 4"><strong>Finished</strong></li>
+                </ul>
             <!-- steps end -->
             <i class="fas fa-thumbs-up fa-6x" style="color: Dodgerblue;"></i>
             <h2>Thank You!</h2>
