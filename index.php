@@ -11,7 +11,7 @@
 
   <title>MNFurs Voting</title>
 </head>
-<?php include "helpers\ada.php" ?>
+<?php include "helpers/ada.php" ?>
 
 <body class="homebg d-flex flex-column h-100">
 
