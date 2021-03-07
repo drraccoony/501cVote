@@ -22,11 +22,13 @@
         <div class="py-5 text-center">
             <i class="fas fa-question fa-6x" style="color: Dodgerblue;"></i>
             <h2>About MNFurs Voting</h2>
-            <p class="lead">Some insight of what this webapp is all about.</p>
+            <p class="lead">Some insight of how this all works.</p>
             <hr>
         </div>
+        <h3>What is this about?</h3>
+        <p>501c3 nonprofit MNFurs has a board of directors, and the time has come to vote new directors. Each term lasts 2 years before voting is conducted to vote on new members (or members that run again). You can read more about the MNFurs Board of Directors, and what they do <a href="https://www.mnfurs.org/about/board-of-directors/">here</a>.</p>
         <h3>Why didn't I get a Voting Code?</h3>
-        <p>We have an internal record of our volunteers and reported volunteer hours. Any volunteer with 20 or more volunteer hours should be provided with a code to vote with. If you didn't get a code and think you should have, please email <code>elections@mnfurs.org</code></p>
+        <p>Please email <code>elections@mnfurs.org</code> and request a voting code. Once you get a code back, you can vote.</p>
         <h3>Is My Vote Anonymous?</h3>
         <p>Yes. One set of individuals are tasked with generating a unquie "Voter ID" for each eligible MNFurs member. This code is provided to each member via email or other direct known method.
             Upon completion of the election process, and after voting is closed, a completely different set of individuals are tasked with counting the votes.</p>
@@ -34,11 +36,7 @@
         <h3>Who Owns This Voting Platform?</h3>
         <p>This web application was written by MNFurs volunteers and staff. The application and database are both owned by MNFurs and housed on MNFurs servers. The only third-party source used within this application is ReCapcha for bot & brute-force prevention methods.</p>
         <h3>Who Wrote This Application?</h3>
-        <p>This application was written with love by volunteer & board-member <a href="https://www.mnfurs.org/members/drraccoon/">Rico Raccoon</a> (Shawn McHenry), and volunteer Tamron. The code was audited by the following individuals:</p>
-        <ul class="list">
-            <li>Kurst Hyperyote</li>
-            <li>@hakei</li>
-        </ul>
+        <p>This application was written with love by volunteer & board-member <a href="https://www.mnfurs.org/members/drraccoon/">Rico Raccoon</a> (Shawn McHenry), and volunteer Tamron. The code was audited by Tamron, and Kurst Hyperyote.</p>
 
     </div>
 

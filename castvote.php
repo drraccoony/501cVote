@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <h2>Canidate Votes</h2>
-                        <p>Please select no more than two. Selecting more than 2 will result in your ballot being void, and not counted.</p>
+                        <p>Please select <strong>up to 2</strong> running canidates. Selecting more than 2 will result in your ballot being void, and not counted.</p>
 
                         <div class="form-check">
                             <input type="hidden" name="canidate_1" value="0" />
@@ -82,12 +82,13 @@
 
                         <hr class="mb-4">
                         <p class="lead">Once your vote is placed, you will not be able to alter your ballot!</p>
+                        <p>If you're not ready to vote, you may safely leave this page and come back again. However, once you vote, you cannot come back to change your vote.</p>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="accept" id="accept" required>
                             <label class="form-check-label" for="accept">
                                 I understand my vote cannot be changed once placed
                             </label>
-                        </div>
+                        </div><br>
                         <button class="btn btn-success btn-lg btn-block" type="submit" name="submit"><i class="fas fa-check-square"></i> Place Vote!</button>
                     </form>
 
@@ -100,7 +101,7 @@
                         if ($result == 1) {
                             echo "It worked.";
                         } else {
-                            echo "Bad!";
+                            echo "Something went wrong! Please contact elections@mnfurs.org by email. Error code 5402.";
                         }
                     }
                     ?>
