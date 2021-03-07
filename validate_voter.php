@@ -82,33 +82,9 @@ $date = $info['mday'];?>
                         </div>
                         <button class="btn btn-primary btn-lg btn-block" type="submit" name="submit">Continue</button>
                     </form>
-
-                    <?php
-                    function checkExists()
-                    {
-                        include 'dbconnect.php';
-                        $searchValue = trim($_POST['voteid']);
-                        //Prepared statement to protect against injection attacks.
-                        $sql = $conn->prepare("SELECT * FROM votes WHERE voterId = ? AND voted = '0'");
-                        $sql->bind_param("s", $searchValue);
-                        $sql->execute();
-                        $result = $sql->get_result();
-                        //Did the DB return any results?
-                        if ($result->num_rows > 0) {
-                            return true;
-                        } else {
-                            return false;
-                        }
-                        $result->close();
-                    }
-                    ?>
-
-
-
-                </div>
+		  </div>
                 <?php } ?> <!-- Else for end date check -->
-            </div>
-            
+            </div>            
         </div>
 
     </div>
@@ -119,3 +95,24 @@ $date = $info['mday'];?>
 </body>
 
 </html>
+<?php
+function checkExists()
+{
+    include 'dbconnect.php';
+    $searchValue = trim($_POST['voteid']);
+    //Prepared statement to protect against injection attacks.
+    $sql = $conn->prepare("SELECT * FROM votes WHERE voterId = ? AND voted = '0'");
+    $sql->bind_param("s", $searchValue);
+    $sql->execute();
+    $result = $sql->get_result();
+    //Did the DB return any results?
+    if ($result->num_rows > 0) {
+         return true;
+    } else {
+         return false;
+    }
+    $result->close();
+}
+
+
+
