@@ -1,0 +1,7 @@
+RewriteEngine On
+
+RewriteRule \.sql$ - [R=404]
+RewriteRule \.MD$ - [R=404]
+
+# never put git files in production if avoidaable but this is a good stop gap in case of
+RewriteRule \.git(.*) - [R=404]
