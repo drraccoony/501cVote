@@ -15,16 +15,25 @@
 
     <title>MNFurs Voting - Validation</title>
 </head>
+<?php date_default_timezone_set('America/Chicago'); // CDT
+$info = getdate();
+$date = $info['mday'];?>
+
 
 <body class="d-flex flex-column h-100">
 
     <?php include 'includes/nav.php'; ?>
 
     <div class="container" role="main">
-        <!--<h1>MNFurs - BoD Voting</h1>-->
         
         <div class="container">
             <div class="py-5 text-center">
+            <?php 
+                if ($date > 27) {
+                    echo "<h1>Voting is closed</h1><p>Voting has closed as of 11:59pm CST on March 27th, 2021.</p>";
+                    echo '<p>Please keep an eye on <a href="http://mnfurs.org/">MNFurs.org</a> for result information.</p>';
+                    }else{?> 
+                    <!-- Else start for end date check -->
                 <!-- steps -->
                 <ul id="progressbar" role="progressbar" aria-valuenow="Step 1 of 4 Validate" aria-valuetext="Step 1 of 4 Validate">
                     <li class="active" id="step1"><strong>Validate</strong></li>
@@ -34,12 +43,11 @@
                 </ul>
                 <!-- steps end -->
 
-
-
                 <i class="fas fa-lock fa-6x" style="color: Dodgerblue;"></i>
                 <h1>Enter Voter Keyphrase</h1>
                 <p class="lead">Upon internal confirmation with our internal system for volunteer hours, you should be provided a registration key for voting. When you cast your vote, your voting selections are completely unassociated from your identity.</p>
                 <p class="lead">Concerned about privacy? View our <strong>about page</strong> to learn how we are handling voting this year.</p>
+                <p>Need a voting code? Request one by emailing elections@mnfurs.org</p>
             </div>
             <?php
             if (isset($_POST['submit'])) {
@@ -51,7 +59,7 @@
                     header("Location:castvote.php?voteid=" . $_POST['voteid']);
                 } else {
                     echo '<div class="alert alert-danger" role="alert">
-                <strong>Your Voter code is invalid.</strong><br>Reason: Either your code is wrong, or you have already voted.<br>If you believe this is in error, please email <code>elections@mnfurs.org</code></div>';
+                <strong>Your Voter code is invalid.</strong><br>Reason: Either your code is wrong, or you have already voted.<br>If you need a voting code, or you believe this is in error, please email <code>elections@mnfurs.org</code></div>';
                 }
             } ?>
             <div class="row">
@@ -69,7 +77,7 @@
                                 <div class="g-recaptcha" data-sitekey="your_site_key"></div>
                             <?php } ?>
                             <div id="emailHelpBlock" class="form-text">
-                                You should have been provided a voter registration key. Please use that here to validate your vote.
+                                You need to get a voting code from MNFurs. Please use that here to validate your vote.
                             </div>
                         </div>
                         <button class="btn btn-primary btn-lg btn-block" type="submit" name="submit">Continue</button>
@@ -98,7 +106,9 @@
 
 
                 </div>
+                <?php } ?> <!-- Else for end date check -->
             </div>
+            
         </div>
 
     </div>
