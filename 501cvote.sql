@@ -41,9 +41,9 @@ CREATE TABLE `votes` (
 -- Dumping data for table `votes`
 --
 
-INSERT INTO `votes` (`voterId`, `hours`, `voted`, `canidate1`, `canidate2`, `canidate3`) VALUES
-('646B7-957CS-NF7A3', 20, 0, NULL, NULL, NULL),
-('T2GOI-H75AG-8S1I7', 24, 0, NULL, NULL, NULL);
+INSERT INTO `votes` (`voterId`, `hours`, `voted`, `canidate1`, `canidate2`, `canidate3`, `canidate4`) VALUES
+('646B7-957CS-NF7A3', 20, 0, NULL, NULL, NULL, NULL),
+('T2GOI-H75AG-8S1I7', 24, 0, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
