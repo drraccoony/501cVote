@@ -26,6 +26,12 @@
     <?php include 'includes/nav.php'; ?>
     <?php $voter = $_GET['voteid']; ?>
     <?php $debug = 0; ?>
+    <?php 
+        $canidate1_name = 'Edward "Alli Coyote" Cardenas';
+        $canidate2_name = 'Caitlyn "Carmabella" Downen';
+        $canidate3_name = 'Jericho "Dirge" Nordstrom';
+        $canidate4_name = 'Douglas “Giza White Mage” Muth';
+    ?>
 
     <div class="container" role="main">
         <div class="container">
@@ -56,27 +62,34 @@
                             </div>
                         </div>
                         <h2>Canidate Votes</h2>
-                        <p>Please select <strong>up to 2</strong> running canidates. Selecting more than 2 will result in your ballot being void, and not counted.</p>
+                        <p>Because we only have two seats available on the Board of Directors, Please select <strong>up to 2</strong> running canidates. Selecting more than 2 will result in your ballot being void, and not counted.</p>
 
                         <div class="form-check">
                             <input type="hidden" name="canidate_1" value="0" />
                             <input class="form-check-input" type="checkbox" name="canidate_1" id="canidate_1" value="1">
                             <label class="form-check-label" for="canidate_1">
-                                Patrick “Kitsunekla/Yancha/Deja” Cain
+                                <?php echo $canidate1_name ?>
                             </label>
                         </div>
                         <div class="form-check">
                             <input type="hidden" name="canidate_2" value="0" />
                             <input class="form-check-input" type="checkbox" name="canidate_2" id="canidate_2" value="1">
                             <label class="form-check-label" for="canidate_2">
-                                Michael “Midnight” Zupec
+                                <?php echo $canidate2_name ?>
                             </label>
                         </div>
                         <div class="form-check">
                             <input type="hidden" name="canidate_3" value="0" />
                             <input class="form-check-input" type="checkbox" name="canidate_3" id="canidate_3" value="1">
                             <label class="form-check-label" for="canidate_3">
-                                Cameron “Papillon” Cegelske
+                                <?php echo $canidate3_name ?>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input type="hidden" name="canidate_4" value="0" />
+                            <input class="form-check-input" type="checkbox" name="canidate_4" id="canidate_4" value="1">
+                            <label class="form-check-label" for="canidate_4">
+                                <?php echo $canidate4_name ?>
                             </label>
                         </div>
 
@@ -95,7 +108,7 @@
                     <?php
                     if (isset($_POST['submit'])) {
                         include 'dbconnect.php';
-                        $sql = "UPDATE `votes` SET `voted` = '1', `canidate1` = '" . $_POST['canidate_1'] . "', `canidate2` = '" . $_POST['canidate_2'] . "', `canidate3` = '" . $_POST['canidate_3'] . "' WHERE `votes`.`voterId` = '" . $voter . "';";
+                        $sql = "UPDATE `votes` SET `voted` = '1', `canidate1` = '" . $_POST['canidate_1'] . "', `canidate2` = '" . $_POST['canidate_2'] . "', `canidate3` = '" . $_POST['canidate_3'] . "', `canidate4` = '" . $_POST['canidate_4'] . "' WHERE `votes`.`voterId` = '" . $voter . "';";
                         $result = $conn->query($sql);
                         $conn->close();
                         if ($result == 1) {
