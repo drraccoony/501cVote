@@ -33,7 +33,8 @@ CREATE TABLE `votes` (
   `voted` tinyint(1) NOT NULL DEFAULT 0,
   `canidate1` tinyint(1) DEFAULT NULL,
   `canidate2` tinyint(1) DEFAULT NULL,
-  `canidate3` tinyint(1) DEFAULT NULL
+  `canidate3` tinyint(1) DEFAULT NULL,
+  `canidate4` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
