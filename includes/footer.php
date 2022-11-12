@@ -1,6 +1,6 @@
 <footer class="footer">
       <div class="container">
-        <span class="text-muted">© 2001-2021 Minnesota Furs a 501c3 Minnesota Non-Profit • built and maintained by local furs.
+        <span class="text-muted">© 2001-<?php echo date("Y");?> Minnesota Furs a 501c3 Minnesota Non-Profit • built and maintained by local furs.
         </span>
       </div>
     </footer>
