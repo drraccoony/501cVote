@@ -41,8 +41,8 @@ CREATE TABLE `votes` (
 --
 
 INSERT INTO `votes` (`voterId`, `voted`, `candidate1`, `candidate2`, `candidate3`, `candidate4`) VALUES
-('646B7-957CS-NF7A3', 20, NULL, NULL, NULL, NULL),
-('T2GOI-H75AG-8S1I7', 24, NULL, NULL, NULL, NULL);
+('646B7-957CS-NF7A3', 0, NULL, NULL, NULL, NULL),
+('T2GOI-H75AG-8S1I7', 0, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
