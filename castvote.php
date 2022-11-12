@@ -25,7 +25,15 @@
 
     <?php include 'includes/nav.php'; ?>
     <?php $voter = $_GET['voteid']; ?>
-    <?php $debug = 0; ?>
+    <?php $debug = true; ?>
+    <?php 
+        $canidates = [
+            'Edward "Alli Coyote" Cardenas',
+            'Caitlyn "Carmabella" Downen',
+            'Jericho "Dirge" Nordstrom',
+            'Douglas “Giza White Mage” Muth'
+        ];
+    ?>
 
     <div class="container" role="main">
         <div class="container">
@@ -56,29 +64,25 @@
                             </div>
                         </div>
                         <h2>Canidate Votes</h2>
-                        <p>Please select <strong>up to 2</strong> running canidates. Selecting more than 2 will result in your ballot being void, and not counted.</p>
+                        <p>Because we only have two seats available on the Board of Directors, Please select <strong>up to 2</strong> running canidates. Selecting more than 2 will result in your ballot being void, and not counted.</p>
 
-                        <div class="form-check">
-                            <input type="hidden" name="canidate_1" value="0" />
-                            <input class="form-check-input" type="checkbox" name="canidate_1" id="canidate_1" value="1">
-                            <label class="form-check-label" for="canidate_1">
-                                Patrick “Kitsunekla/Yancha/Deja” Cain
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input type="hidden" name="canidate_2" value="0" />
-                            <input class="form-check-input" type="checkbox" name="canidate_2" id="canidate_2" value="1">
-                            <label class="form-check-label" for="canidate_2">
-                                Michael “Midnight” Zupec
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input type="hidden" name="canidate_3" value="0" />
-                            <input class="form-check-input" type="checkbox" name="canidate_3" id="canidate_3" value="1">
-                            <label class="form-check-label" for="canidate_3">
-                                Cameron “Papillon” Cegelske
-                            </label>
-                        </div>
+                        <!-- Start Checkboxes Loop through canidates -->
+                        <?php
+                            $i = 0; //Init the incrementing value for the SQL query
+                            foreach ($canidates as &$canidate) {
+                                ?>
+                                <div class="form-check">
+                                    <input type="hidden" name="<?php echo 'canidate_'.$i+1 ?>" value="0" />
+                                    <input class="form-check-input" type="checkbox" name="<?php echo 'canidate_'.$i+1 ?>" id="<?php echo 'canidate_'.$i+1 ?>" value="1">
+                                    <label class="form-check-label" for="<?php echo 'canidate_'.$i+1 ?>">
+                                        <?php echo $canidate ?>
+                                    </label>
+                                </div>
+                                <?php
+                                $i++; //Increment the count for proper SQL column data assignment
+                            }
+                        ?>
+                        <!-- End Checkboxes Loop through canidates -->
 
                         <hr class="mb-4">
                         <p class="lead">Once your vote is placed, you will not be able to alter your ballot!</p>
@@ -95,7 +99,8 @@
                     <?php
                     if (isset($_POST['submit'])) {
                         include 'dbconnect.php';
-                        $sql = "UPDATE `votes` SET `voted` = '1', `canidate1` = '" . $_POST['canidate_1'] . "', `canidate2` = '" . $_POST['canidate_2'] . "', `canidate3` = '" . $_POST['canidate_3'] . "' WHERE `votes`.`voterId` = '" . $voter . "';";
+                        // TODO: Eventually this SQL query should account for the canidate array and include a forEach
+                        $sql = "UPDATE `votes` SET `voted` = '1', `canidate1` = '" . $_POST['canidate_1'] . "', `canidate2` = '" . $_POST['canidate_2'] . "', `canidate3` = '" . $_POST['canidate_3'] . "', `canidate4` = '" . $_POST['canidate_4'] . "' WHERE `votes`.`voterId` = '" . $voter . "';";
                         $result = $conn->query($sql);
                         $conn->close();
                         if ($result == 1) {
