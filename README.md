@@ -12,7 +12,7 @@ Nonprofits to open for board of directors voting when in-person voting at meetin
 * Lightweight
 * Responsive UI
 * Prepared SQL statements to protect against injection attacks\
-* List canidates randomly on screen to reduce "bias"
+* List candidates randomly on screen to reduce "bias"
 
 ## Room for improvement
 - [ ] Add validation to prevent more than alloted candidates
@@ -40,6 +40,6 @@ Nonprofits to open for board of directors voting when in-person voting at meetin
 5. Unassociated user not involved in steps 1 & 2 should access DB and count votes.
 
 ## Additional Notes
-* Either make the candiates into an array or put them in the db.
-* Use value/key saving votes for the canidates in the database.
+* Think about putting candidates in the db.
+* Use value/key saving votes for the candidates in the database.
 * relationalize the database entries
