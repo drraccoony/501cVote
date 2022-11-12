@@ -40,7 +40,6 @@ Nonprofits to open for board of directors voting when in-person voting at meetin
 5. Unassociated user not involved in steps 1 & 2 should access DB and count votes.
 
 ## Additional Notes
-* 'hours' column not required for use, and likely shouldn't be used because of potential voter identification
 * Either make the candiates into an array or put them in the db.
 * Use value/key saving votes for the canidates in the database.
 * relationalize the database entries

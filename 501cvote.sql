@@ -29,7 +29,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `votes` (
   `voterId` char(17) NOT NULL,
-  `hours` int(4) NOT NULL DEFAULT 0,
   `voted` tinyint(1) NOT NULL DEFAULT 0,
   `candidate1` tinyint(1) DEFAULT NULL,
   `candidate2` tinyint(1) DEFAULT NULL,
@@ -41,9 +40,9 @@ CREATE TABLE `votes` (
 -- Dumping data for table `votes`
 --
 
-INSERT INTO `votes` (`voterId`, `hours`, `voted`, `candidate1`, `candidate2`, `candidate3`, `candidate4`) VALUES
-('646B7-957CS-NF7A3', 20, 0, NULL, NULL, NULL, NULL),
-('T2GOI-H75AG-8S1I7', 24, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `votes` (`voterId`, `voted`, `candidate1`, `candidate2`, `candidate3`, `candidate4`) VALUES
+('646B7-957CS-NF7A3', 20, NULL, NULL, NULL, NULL),
+('T2GOI-H75AG-8S1I7', 24, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
