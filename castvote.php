@@ -1,4 +1,19 @@
-<!doctype html>
+<?php
+
+    // make it easier to convert over to db
+$candidates = array(
+     (object) [
+    'name' =>    'Edward "Alli Coyote" Cardenas',
+    'id'=> 1
+    ],
+    (object)[
+    'name'=>  'Caitlyn "Carmabella" Downen',
+    'id' => 2 ],
+    (object) ['name' =>'Jericho "Dirge" Nordstrom',
+    'id'=> 3],
+    (object) ['name'=> 'Douglas “Giza White Mage” Muth',
+    'id'=> 4]);
+?><!doctype html>
 <html lang="en">
 
 <head>
@@ -10,10 +25,12 @@
     <?php include 'includes/head.php'; ?>
 
     <?php
-    if (isset($_POST['submit'])) {
-        if (!empty($_POST['accept'])) {
-            header("Location:voted.php");
-        }
+    $voter = $_GET['voteid'];
+    $voteResult = checkSaveVote($voter, $candidates);
+
+
+    if ($voteResult['success']) {
+        header("Location:voted.php");
     }
     ?>
 
@@ -26,14 +43,6 @@
     <?php include 'includes/nav.php'; ?>
     <?php $voter = $_GET['voteid']; ?>
     <?php $debug = true; ?>
-    <?php 
-        $canidates = [
-            'Edward "Alli Coyote" Cardenas',
-            'Caitlyn "Carmabella" Downen',
-            'Jericho "Dirge" Nordstrom',
-            'Douglas “Giza White Mage” Muth'
-        ];
-    ?>
 
     <div class="container" role="main">
         <div class="container">
@@ -48,7 +57,7 @@
                 <!-- steps end -->
                 <i class="fas fa-tasks fa-6x" style="color: Dodgerblue;"></i>
                 <h1>Time to Vote!</h1>
-                <p class="lead">We found your voter ID in our system. Please make your voting selection for <strong>2</strong> canidates.</p>
+                <p class="lead">We found your voter ID in our system. Please make your voting selection for <strong>2</strong> candidates.</p>
             </div>
 
             <div class="row">
@@ -63,54 +72,38 @@
                                 <input type="text" class="form-control" id="voterkey" name="voteid" value="<?php echo (isset($voter)) ? $voter : ''; ?>" required disabled>
                             </div>
                         </div>
-                        <h2>Canidate Votes</h2>
-                        <p>Because we only have two seats available on the Board of Directors, Please select <strong>up to 2</strong> running canidates. Selecting more than 2 will result in your ballot being void, and not counted.</p>
+                        <h2>Candidate Votes</h2>
+                        <p>Because we only have two seats available on the Board of Directors, Please select <strong>up to 2</strong> running candidates. Selecting more than 2 will result in your ballot being void, and not counted.</p>
 
-                        <!-- Start Checkboxes Loop through canidates -->
+                        <!-- Start Checkboxes Loop through candidates -->
                         <?php
-                            $i = 0; //Init the incrementing value for the SQL query
-                            foreach ($canidates as &$canidate) {
+                        // Shuffle the candidates using internal ID to deal with the shuffling values
+                             shuffle($candidates);
+                            foreach ($candidates as &$candidate) {
                                 ?>
                                 <div class="form-check">
-                                    <input type="hidden" name="<?php echo 'canidate_'.$i+1 ?>" value="0" />
-                                    <input class="form-check-input" type="checkbox" name="<?php echo 'canidate_'.$i+1 ?>" id="<?php echo 'canidate_'.$i+1 ?>" value="1">
-                                    <label class="form-check-label" for="<?php echo 'canidate_'.$i+1 ?>">
-                                        <?php echo $canidate ?>
+                                    <input type="hidden" name="<?php echo 'candidate_'.$candidate->id ?>" value="0" />
+                                    <input class="form-check-input" type="checkbox" name="<?php echo 'candidate_'.$candidate->id ?>" id="<?php echo 'candidate_'.$candidate->id ?>" value="1">
+                                    <label class="form-check-label" for="<?php echo 'candidate_'.$candidate->id ?>">
+                                        <?php echo $candidate->name ?>
                                     </label>
                                 </div>
                                 <?php
-                                $i++; //Increment the count for proper SQL column data assignment
                             }
                         ?>
-                        <!-- End Checkboxes Loop through canidates -->
+                        <!-- End Checkboxes Loop through candidates -->
 
                         <hr class="mb-4">
                         <p class="lead">Once your vote is placed, you will not be able to alter your ballot!</p>
                         <p>If you're not ready to vote, you may safely leave this page and come back again. However, once you vote, you cannot come back to change your vote.</p>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="accept" id="accept" required>
+                            <input class="form-check-input" type="checkbox" name="accept" id="accept" required value="Yes">
                             <label class="form-check-label" for="accept">
                                 I understand my vote cannot be changed once placed
                             </label>
                         </div><br>
                         <button class="btn btn-success btn-lg btn-block" type="submit" name="submit"><i class="fas fa-check-square"></i> Place Vote!</button>
                     </form>
-
-                    <?php
-                    if (isset($_POST['submit'])) {
-                        include 'dbconnect.php';
-                        // TODO: Eventually this SQL query should account for the canidate array and include a forEach
-                        $sql = "UPDATE `votes` SET `voted` = '1', `canidate1` = '" . $_POST['canidate_1'] . "', `canidate2` = '" . $_POST['canidate_2'] . "', `canidate3` = '" . $_POST['canidate_3'] . "', `canidate4` = '" . $_POST['canidate_4'] . "' WHERE `votes`.`voterId` = '" . $voter . "';";
-                        $result = $conn->query($sql);
-                        $conn->close();
-                        if ($result == 1) {
-                            echo "It worked.";
-                        } else {
-                            echo "Something went wrong! Please contact elections@mnfurs.org by email. Error code 5402.";
-                        }
-                    }
-                    ?>
-
                 </div>
             </div>
         </div>
@@ -122,3 +115,74 @@
 </body>
 
 </html>
+<?php
+/**
+*
+* 'Check' for a valid vote and save it
+*
+* @param $voterId - Voter key, $candidates array of candidates
+* @return array
+*  message - Success or error message
+*  success - if it was saved
+*
+*
+*/
+function checkSaveVote($voterId = '', $candidates = array())
+{
+/// default results if nothing happenns.
+    $returnResults = array('message' => '', 'success' => false);
+
+// check if submmitted and they check the accept I don't care what they vote :)
+    if (!empty($voterId) && isset($_POST['submit']) && isset($_POST['accept']) && $_POST['accept'] == 'Yes') {
+        include 'dbconnect.php';
+        $parameters = array();
+        $fields = '';
+
+// create sql statement
+        $sql = 'UPDATE `votes` SET `voted` = 1';
+
+        foreach ($candidates as &$canidate) {
+            $candidateId = $canidate->id;
+
+                $sql .= ", `candidate{$candidateId}` = ?";
+                $fields .= 'i';
+                $parameters[] = intval($_POST['candidate_' . $candidateId]);
+        }
+
+        $sql .= ' WHERE `votes`.`voterId` = ? and voted = 0';
+        $fields .= 's';
+        $parameters[] = $voterId;
+print "WEEE";
+var_dump($sql);
+// Data and sql statement built do a prepare statement and get this thing rolling
+        $sqlPrepare = $conn->prepare($sql);
+var_dump($sqlPrepare);
+var_dump($conn);
+        if ($sqlPrepare === FALSE) {
+            die ("Error: " . $sql->error);
+        }
+
+        $sqlPrepare->bind_param($fields, ...$parameters) or die($sqlPrepare->error);
+        $sqlPrepare->execute();
+
+// If it updated a vote it will return 1. If it screwed up well :)
+        $result = $sqlPrepare->affected_rows;
+
+        if ($result == 1) {
+            $returnResults['message'] = 'Thank you! Your vote has been received.';
+            $returnResults['success'] = true;
+        } else {
+            $returnResults['message'] = "Something went wrong! Please contact elections@mnfurs.org by email. Error code 5402.";
+        }
+
+// Unnecessary clean up but it's good practice.
+
+        $sqlPrepare->close();
+        $conn->close();
+
+// return results
+        return $returnResults;
+    }
+
+    return $returnResults;
+}

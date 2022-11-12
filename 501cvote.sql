@@ -31,17 +31,17 @@ CREATE TABLE `votes` (
   `voterId` char(17) NOT NULL,
   `hours` int(4) NOT NULL DEFAULT 0,
   `voted` tinyint(1) NOT NULL DEFAULT 0,
-  `canidate1` tinyint(1) DEFAULT NULL,
-  `canidate2` tinyint(1) DEFAULT NULL,
-  `canidate3` tinyint(1) DEFAULT NULL,
-  `canidate4` tinyint(1) DEFAULT NULL
+  `candidate1` tinyint(1) DEFAULT NULL,
+  `candidate2` tinyint(1) DEFAULT NULL,
+  `candidate3` tinyint(1) DEFAULT NULL,
+  `candidate4` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `votes`
 --
 
-INSERT INTO `votes` (`voterId`, `hours`, `voted`, `canidate1`, `canidate2`, `canidate3`, `canidate4`) VALUES
+INSERT INTO `votes` (`voterId`, `hours`, `voted`, `candidate1`, `candidate2`, `candidate3`, `candidate4`) VALUES
 ('646B7-957CS-NF7A3', 20, 0, NULL, NULL, NULL, NULL),
 ('T2GOI-H75AG-8S1I7', 24, 0, NULL, NULL, NULL, NULL);
 

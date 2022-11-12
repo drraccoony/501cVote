@@ -58,7 +58,7 @@
         </div>
         <div class="card mb-4 box-shadow">
           <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Canidates</h4>
+            <h4 class="my-0 font-weight-normal">Candidates</h4>
           </div>
           <div class="card-body">
           <p>It's that time. We have our candidates and we have their bios. Please check them out and then tune into the Q+A Discussion this Saturday the 6th at 1 pm. Email elections at mnfurs.org with your questions for the candidates by 11:59 pm Friday, March 5th.</p>
@@ -70,7 +70,7 @@
             <h4 class="my-0 font-weight-normal">Watch Debate</h4>
           </div>
           <div class="card-body">
-          <p>View a live Q&A Session with our canidates. The best time to learn more about those running.</p>
+          <p>View a live Q&A Session with our candidates. The best time to learn more about those running.</p>
           <p>Missed the live session? It will be recorded and uploaded for later viewing.</p>
             <button type="button" class="btn btn-lg btn-block btn-outline-primary disabled">Watch Now</button>
           </div>
