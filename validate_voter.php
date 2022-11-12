@@ -101,7 +101,12 @@ function checkExists()
     include 'dbconnect.php';
     $searchValue = trim($_POST['voteid']);
     //Prepared statement to protect against injection attacks.
+
     $sql = $conn->prepare("SELECT * FROM votes WHERE voterId = ? AND voted = '0'");
+    if ($sql === FALSE) {
+        die ("Error: " . $sql->error);
+    }
+
     $sql->bind_param("s", $searchValue);
     $sql->execute();
     $result = $sql->get_result();
