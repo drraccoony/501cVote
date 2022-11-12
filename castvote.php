@@ -152,12 +152,9 @@ function checkSaveVote($voterId = '', $candidates = array())
         $sql .= ' WHERE `votes`.`voterId` = ? and voted = 0';
         $fields .= 's';
         $parameters[] = $voterId;
-print "WEEE";
-var_dump($sql);
+
 // Data and sql statement built do a prepare statement and get this thing rolling
         $sqlPrepare = $conn->prepare($sql);
-var_dump($sqlPrepare);
-var_dump($conn);
         if ($sqlPrepare === FALSE) {
             die ("Error: " . $sql->error);
         }
