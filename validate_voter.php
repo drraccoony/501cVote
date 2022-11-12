@@ -15,10 +15,6 @@
 
     <title>MNFurs Voting - Validation</title>
 </head>
-<?php date_default_timezone_set('America/Chicago'); // CDT
-$info = getdate();
-$date = $info['mday'];?>
-
 
 <body class="d-flex flex-column h-100">
 
@@ -29,7 +25,8 @@ $date = $info['mday'];?>
         <div class="container">
             <div class="py-5 text-center">
             <?php 
-                if ($date > 27) {
+                date_default_timezone_set('America/Chicago'); // CDT
+                if (date('m') > 11) {
                     echo "<h1>Voting is closed</h1><p>Voting has closed as of 11:59pm CST on March 27th, 2021.</p>";
                     echo '<p>Please keep an eye on <a href="http://mnfurs.org/">MNFurs.org</a> for result information.</p>';
                     }else{?> 
