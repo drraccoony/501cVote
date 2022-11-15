@@ -40,9 +40,9 @@
 
     <h2>Important Events</h2>
     <ul>
-      <li>March 7th: Voting opens at 12:00pm CST</li>
-      <li>March 21st: Mail ballots closed (Postmarked by March 21st)</li>
-      <li>March 27th: Voting closes at 11:59pm CST</li>
+      <li>November 16th: Voting opens at 12:00pm CST</li>
+      <li>November 28th: Mail ballots closed (Postmarked by Novemeber 22nd)</li>
+      <li>December 1st: Voting closes at 11:59pm CST</li>
     </ul>
   </div>
   <!--<div class="container">

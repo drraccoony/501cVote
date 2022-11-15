@@ -10,7 +10,7 @@
         <a class="nav-link" href="index.php">Home</a>
       </li>-->
       <li class="nav-item">
-        <a class="nav-link" href="https://www.mnfurs.org/forums/forum/mnfurs-forums/mnfurs-2021-elections-forum/meet-the-candidates/">Candidates</a>
+        <a class="nav-link" href="https://www.mnfurs.org/forums/forum/mnfurs-forums/minnesota-furs-2022-fall-elections-forum/meet-the-candidates/">Candidates</a>
       </li>
       <!--<li class="nav-item">
         <a class="nav-link disabled" href="register.php">Register</a>
