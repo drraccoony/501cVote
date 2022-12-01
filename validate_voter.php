@@ -26,8 +26,12 @@
             <div class="py-5 text-center">
             <?php 
                 date_default_timezone_set('America/Chicago'); // CDT
-                if (date('m') > 11) {
-                    echo "<h1>Voting is closed</h1><p>Voting has closed as of 11:59pm CST on March 27th, 2021.</p>";
+
+                $expires = new DateTime('2022-12-01 11:59:59 PM', new DateTimeZone('America/Chicago'));
+                $now = new DateTime();
+
+                if ($expires < $now) {
+                    echo "<h1>Voting is closed</h1><p>Voting has closed as of ".$expires->format("g:i:s A")." ".$expires->format("T")." on ".$expires->format("F jS, Y").".</p>";
                     echo '<p>Please keep an eye on <a href="http://mnfurs.org/">MNFurs.org</a> for result information.</p>';
                     }else{?> 
                     <!-- Else start for end date check -->
