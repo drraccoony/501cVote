@@ -12,7 +12,7 @@
 
     <title>MNFurs Voting - About</title>
 </head>
-<?php include "helpers\ada.php" ?>
+<?php include "helpers/ada.php" ?>
 
 <body class="d-flex flex-column h-100">
 
@@ -36,7 +36,7 @@
         <h3>Who Owns This Voting Platform?</h3>
         <p>This web application was written by MNFurs volunteers and staff. The application and database are both owned by MNFurs and housed on MNFurs servers. The only third-party source used within this application is ReCapcha for bot & brute-force prevention methods.</p>
         <h3>Who Wrote This Application?</h3>
-        <p>This application was written with love by volunteer & board-member <a href="https://www.mnfurs.org/members/drraccoon/">Rico Raccoon</a> (Shawn McHenry), and volunteer Tamron. The code was audited by Tamron, and Kurst Hyperyote.</p>
+        <p>This application was written with love by volunteer & board-member <a href="https://www.mnfurs.org/members/drraccoon/">Rico Raccoon</a> (Shawn McHenry), and volunteer Tamron. The code was audited by Tamron, and Kurst Hyperyote. Changes for this year have been done by volunteer & board-member <a href="https://www.mnfurs.org/members/midnightxenesis/">Midnight</a> (Michael Zupec).</p>
 
     </div>
 

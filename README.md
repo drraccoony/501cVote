@@ -11,11 +11,12 @@ Nonprofits to open for board of directors voting when in-person voting at meetin
    * Code revoting validation
 * Lightweight
 * Responsive UI
-* Prepared SQL statements to protect against injection attacks
+* Prepared SQL statements to protect against injection attacks\
+* List candidates randomly on screen to reduce "bias"
 
 ## Room for improvement
 - [ ] Add validation to prevent more than alloted candidates
-- [ ] Remove hardcoded canidates
+- [ ] Remove hardcoded candidates
 - [ ] Add server time checks to auto open / close voting
 - [ ] ADA Compliance
 
@@ -39,4 +40,6 @@ Nonprofits to open for board of directors voting when in-person voting at meetin
 5. Unassociated user not involved in steps 1 & 2 should access DB and count votes.
 
 ## Additional Notes
-* 'hours' column not required for use, and likely shouldn't be used because of potential voter identification
+* Think about putting candidates in the db.
+* Use value/key saving votes for the candidates in the database.
+* relationalize the database entries

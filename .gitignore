@@ -1,0 +1,10 @@
+# prevent clobbering of config files
+/dbconnect.php
+
+# standard files that might appear based on editors on unix
+*~
+.idea
+
+# standard files by pc/mac that not needed
+.DS_Store
+thumbs.db

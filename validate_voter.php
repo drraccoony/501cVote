@@ -15,10 +15,6 @@
 
     <title>MNFurs Voting - Validation</title>
 </head>
-<?php date_default_timezone_set('America/Chicago'); // CDT
-$info = getdate();
-$date = $info['mday'];?>
-
 
 <body class="d-flex flex-column h-100">
 
@@ -29,8 +25,13 @@ $date = $info['mday'];?>
         <div class="container">
             <div class="py-5 text-center">
             <?php 
-                if ($date > 27) {
-                    echo "<h1>Voting is closed</h1><p>Voting has closed as of 11:59pm CST on March 27th, 2021.</p>";
+                date_default_timezone_set('America/Chicago'); // CDT
+
+                $expires = new DateTime('2022-12-01 11:59:59 PM', new DateTimeZone('America/Chicago'));
+                $now = new DateTime();
+
+                if ($expires < $now) {
+                    echo "<h1>Voting is closed</h1><p>Voting has closed as of ".$expires->format("g:i:s A")." ".$expires->format("T")." on ".$expires->format("F jS, Y").".</p>";
                     echo '<p>Please keep an eye on <a href="http://mnfurs.org/">MNFurs.org</a> for result information.</p>';
                     }else{?> 
                     <!-- Else start for end date check -->
@@ -82,33 +83,9 @@ $date = $info['mday'];?>
                         </div>
                         <button class="btn btn-primary btn-lg btn-block" type="submit" name="submit">Continue</button>
                     </form>
-
-                    <?php
-                    function checkExists()
-                    {
-                        include 'dbconnect.php';
-                        $searchValue = trim($_POST['voteid']);
-                        //Prepared statement to protect against injection attacks.
-                        $sql = $conn->prepare("SELECT * FROM votes WHERE voterId = ? AND voted = '0'");
-                        $sql->bind_param("s", $searchValue);
-                        $sql->execute();
-                        $result = $sql->get_result();
-                        //Did the DB return any results?
-                        if ($result->num_rows > 0) {
-                            return true;
-                        } else {
-                            return false;
-                        }
-                        $result->close();
-                    }
-                    ?>
-
-
-
-                </div>
+		  </div>
                 <?php } ?> <!-- Else for end date check -->
-            </div>
-            
+            </div>            
         </div>
 
     </div>
@@ -119,3 +96,29 @@ $date = $info['mday'];?>
 </body>
 
 </html>
+<?php
+function checkExists()
+{
+    include 'dbconnect.php';
+    $searchValue = trim($_POST['voteid']);
+    //Prepared statement to protect against injection attacks.
+
+    $sql = $conn->prepare("SELECT * FROM votes WHERE voterId = ? AND voted = '0'");
+    if ($sql === FALSE) {
+        die ("Error: " . $sql->error);
+    }
+
+    $sql->bind_param("s", $searchValue);
+    $sql->execute();
+    $result = $sql->get_result();
+    //Did the DB return any results?
+    if ($result->num_rows > 0) {
+         return true;
+    } else {
+         return false;
+    }
+    $result->close();
+}
+
+
+
